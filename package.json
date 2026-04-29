@@ -1,0 +1,16 @@
+{
+  "name": "node_revise",
+  "version": "1.0.0",
+  "description": "tinder for devs",
+  "license": "ISC",
+  "author": "",
+  "type": "commonjs",
+  "main": "abc.js",
+  "scripts": {
+    "dev": "nodemon src/app.js"
+  },
+  "dependencies": {
+    "express": "^5.2.1",
+    "nodemon": "^3.1.14"
+  }
+}
