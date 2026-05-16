@@ -40,5 +40,14 @@
 
 -Reading the dynamic routes
 
--
+-multiple route handlers
 
+-next()
+
+-next functions and error along with res.send()
+
+-app.use("/route",rh,[rh2,rh3],rh4,rh);
+
+-what is middleware and how express js bascically handles request behind the  scenes
+
+-How express js handle the requests behind the scenes

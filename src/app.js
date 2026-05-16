@@ -2,68 +2,29 @@ const express=require('express');
 
 const app=express();
 
+const {adminAuth,userAuth}=require("./middlewares/auth");
 
-app.use("/user",[(req,res,next)=>{
-
-    console.log("Handling the route user");
-    next();
-},
-(req,res,next)=>{
-    console.log("Handling the route user2");
-    next();
-}],
-(req,res,next)=>{
-    console.log("Handling the route user3");
-    next();
-    
-},
-(req,res,next)=>{
-    console.log("Handling the route user 4");
-    next();
-  
-},
-(req,res,next)=>{
-    console.log("Handling the route user 5");
-    res.send("Response5 generated!!")
-  
-}
+app.post("/user/login",(req,res)=>{
+    res.send("user loggedIn successfully");
+})
 
 
-);
+app.use("/user",userAuth,(req,res)=>{
+    res.send("All data send");
+})
 
-app.listen(3000,()=>{
-    console.log("server is successfully listening on port 3000");
+
+
+app.use("/admin",adminAuth);
+
+app.get("/admin/getAllData",(req,res)=>{
+    res.send("All Data Send");
 });
 
+app.get("/admin/deleteUser",(req,res)=>{
+    res.send("Deleted a User");
+});
 
-// app.get("/user/:userId/:name/:password",(req,res)=>{
-//     console.log(req.params);
-//     res.send({firstName:"Tanay", lastName:"Agrawal"});
-
-// })
-
-// app.post("/user",(req,res)=>{
-//     res.send("Data successfully saved to the database");
-// })
-
-// app.delete("/user",(req,res)=>{
-//     res.send("Deleted Successfully");
-// })
-
-// app.use("/test",(req,res)=>{
-//     res.send("Hello from the user!");
-
-// })
-
-// app.use("/hello",(req,res)=>{
-//     res.send("Hello Hello Hello");
-
-// })
-
-
-// app.use("/hello/2",(req,res)=>{
-//     res.send("aabra ka dabra");
-// })
-
-
-
+app.listen(3000,()=>{
+    console.log("Server running on port 3000");
+})
