@@ -51,3 +51,9 @@
 -what is middleware and how express js bascically handles request behind the  scenes
 
 -How express js handle the requests behind the scenes
+
+-Difference in app.use and app.all
+
+-write a dummy auth middleware for all user routes except /user/login
+
+-Error handling using app.use("/",(err,req,res,next)={});
